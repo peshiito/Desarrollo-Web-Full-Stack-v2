@@ -18,3 +18,5 @@ despues pull request en git hub
 en vscode:
 git checkout main
 git status
+
+gordo de mierda
