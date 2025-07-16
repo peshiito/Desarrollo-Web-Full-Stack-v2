@@ -18,3 +18,7 @@ despues pull request en git hub
 en vscode:
 git checkout main
 git status
+
+imagen de fondo
+background-attachment: fixed; (evita que la imagen se mueva)
+background-size: cover; ( ocupa todo el lugar de la pantalla)
