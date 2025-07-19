@@ -1,0 +1,48 @@
+body {
+    background: linear-gradient(84deg,rgba(54, 16, 94, 1) 0%, rgba(101, 16, 107, 1) 43%, rgba(57, 0, 79, 1) 60%);
+}
+header{
+    background-color: rgb(119, 14, 169);
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+nav {
+    display: flex;
+    justify-content: end;
+}
+main h1{
+    text-align: center;
+
+}
+header a{
+    padding: 10px;
+}
+.presentacion {
+    justify-content: center;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0.9, 0.9, 0.9, 0.9);
+    background-color: rgb(119, 14, 169);
+    border-radius: 20px;
+    padding-right: 30%;
+}
+.presentacion p {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+
+}
+.presentacion .perfil{
+    height: auto;
+    width: 300px;
+    border-radius: 200px;
+}
+.empren-img {
+    background-color: blueviolet;
+    
+}
+.empren-img .ft_emprendimiento {
+    width: 100px;
+    height: 100px;
+}
