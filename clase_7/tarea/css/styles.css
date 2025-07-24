@@ -1,0 +1,164 @@
+body {
+  background-image: url(../img/fondo1.avif);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(134, 0, 0);
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+}
+
+.menu-burguer ul {
+  display: flex;
+  flex-direction: row;
+  margin: none;
+  padding: none;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu-burguer ul a {
+  display: inline-block;
+  background-color: rgb(188, 107, 15);
+  border: 2px solid black;
+  color: black;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-burguer ul a:hover {
+  background-color: red;
+  color: white;
+  transform: scale(1.4);
+}
+
+main {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: black;
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.infor h2 {
+  font-size: 30px;
+}
+
+.infor p {
+  font-size: 25px;
+}
+
+.sucursales h2 {
+  font-size: 30px;
+}
+
+.sucursales p {
+  font-size: 25px;
+}
+
+.sucursales .img-sucu {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-content: space-between;
+  gap: 20px;
+  padding: 10px;
+}
+
+.img-sucu > div {
+  background-color: white;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  padding: 10px;
+  border-radius: 10px;
+  flex: 1;
+  position: relative;
+}
+
+.img-sucu > div:hover {
+  transform: scale(1.1);
+  background-color: black;
+  filter: grayscale(0.5);
+}
+
+.img-sucu > div:hover .pie,
+.img-sucu > div:hover .pie a,
+.img-sucu > div:hover .titulo {
+  color: white;
+}
+
+.pie,
+.pie a,
+.titulo {
+  transition: color 0.3s ease-in-out;
+}
+
+.titulo {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+
+.pie {
+  font-size: 20px;
+}
+
+.pie a {
+  text-decoration: none;
+  color: black;
+}
+.img-lmor {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+.img-merlo {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+.img-lmor {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+
+.nuevo {
+  display: inline-block;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  z-index: 2;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
