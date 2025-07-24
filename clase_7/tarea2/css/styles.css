@@ -8,7 +8,7 @@ body {
   font-size: 1.2rem;
   min-height: 100vh;
   padding: 20px;
-  background-image: url(/img/fondo4k.jpg);
+  background-image: url(/clase_7/tarea2/img/fondo4k.jpg);
   background-attachment: fixed;
   background-size: cover;
 }
@@ -147,6 +147,7 @@ body {
   align-content: center;
 }
 .exp {
+  margin-top: 10px;
   border: 2px solid rgb(121, 115, 115);
   box-shadow: 10px 6px 37px -13px rgb(51, 51, 51, 0.74);
   border-radius: 10px;
