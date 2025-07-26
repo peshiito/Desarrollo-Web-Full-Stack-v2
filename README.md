@@ -24,4 +24,4 @@ background-attachment: fixed; (evita que la imagen se mueva)
 background-size: cover; ( ocupa todo el lugar de la pantalla)
 
 Profe porfavor revisar el tema de la tarea 2 de la clase 7, tengo el problema de los botones del navbar y el footer.
-Desde ya muchas gracias
+Desde ya muchas gracias y mil disculpas las molestias

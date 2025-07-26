@@ -1,0 +1,114 @@
+:root{
+    --color_primario: #8527c2fd;
+    --color_primario_suave: #8527c383;
+    --color_blanco: #fff;
+    --altura_header: 80px;
+    --padding_left_right: 2rem;
+    --ancho_maximo: 1200px
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #333;
+}
+a {
+    text-decoration: none;
+}
+ol, ul{
+    list-style: none;
+}
+.header {
+    height: var(--altura_header);
+    background-color: var(--color_primario);
+}
+.navbar {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 0 var(--padding_left_right);
+}
+.menu{
+    display: none;
+}
+.menu:checked + .ul_link{
+    height: calc(100vh - var(--altura_header));
+}
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.list_icon {
+    color: var(--color_blanco);
+    cursor: pointer;
+}
+.ul_link {
+    width: 100%;
+    background-color: var(--color_primario_suave);
+    position: absolute;
+    top: var(--altura_header);
+    left: 0;
+    height: 0;
+    overflow: hidden;
+    /* height: calc(100vh - var(--altura_header)); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    transition: all .3s;
+}
+.links {
+    font-size: 2.5rem;
+    color: var(--color_blanco);
+    font-weight: bold;
+}
+.top-main .img-top img{
+    background-attachment: fixed; 
+    background-size: cover;
+    height: 650px;
+    width: 768px;
+}
+.top-main .titulo{
+    font-size: 25px;
+    text-align: center;
+    color: yellow;
+    padding-bottom: 60px;
+}
+.mid-main{
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 10px;
+}
+.mid-main .info {
+    border: 3px solid black;
+    border-radius: 5px;
+    
+}
+/* Tablets */
+@media (min-width:768px) and (max-width:992px){
+    .label_hamburguesa {
+        display: none;
+    }
+    .ul_link{
+        position: static;
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    .links{
+        font-size: 1.2rem;
+        transition: all .3s;
+        padding: .2rem .7rem;
+    }
+    .links:hover{
+        background-color: #5f1192;
+    }
+}
