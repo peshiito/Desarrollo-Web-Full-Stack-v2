@@ -6,25 +6,34 @@
   --padding_left_right: 2rem;
   --ancho_maximo: 1200px;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background-color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
 }
+
 a {
   text-decoration: none;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
+/* HEADER */
 .header {
   height: var(--altura_header);
   background-color: var(--color_primario);
 }
+
 .navbar {
   height: 100%;
   display: flex;
@@ -34,21 +43,25 @@ ul {
   position: relative;
   padding: 0 var(--padding_left_right);
 }
-.menu {
-  display: none;
-}
-.menu:checked + .ul_link {
-  height: calc(100vh - var(--altura_header));
-}
+
 .logo {
   height: 50px;
   width: 50px;
 }
 
-.list_icon {
-  color: var(--color_blanco);
+.label_hamburguesa {
+  display: block;
   cursor: pointer;
 }
+
+.menu {
+  display: none;
+}
+
+.menu:checked + .ul_link {
+  height: calc(100vh - var(--altura_header));
+}
+
 .ul_link {
   width: 100%;
   background-color: var(--color_primario_suave);
@@ -57,7 +70,6 @@ ul {
   left: 0;
   height: 0;
   overflow: hidden;
-  /* height: calc(100vh - var(--altura_header)); */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,58 +77,137 @@ ul {
   gap: 3rem;
   transition: all 0.3s;
 }
+
 .links {
   font-size: 2.5rem;
   color: var(--color_blanco);
   font-weight: bold;
 }
+
+/* HERO SECTION */
+.top-main {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.top-main .img-top {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .top-main .img-top img {
-  background-attachment: fixed;
-  background-size: cover;
-  width: 100vw;
-  height: auto;
-  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
+  filter: brightness(40%);
 }
-.top-main .titulo {
-  font-size: 25px;
+
+.overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  color: yellow;
-  padding-bottom: 60px;
+  padding: 0 1rem;
 }
+
+.overlay-top .titulo h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.overlay-top .titulo h3 {
+  font-size: 1.8rem;
+  color: #eee;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* CONTENIDO INTERMEDIO */
 .mid-main {
   border: 3px solid black;
   border-radius: 15px;
   padding: 10px;
+  background-color: #444;
+  margin: 2rem;
 }
+
 .mid-main .info {
   border: 3px solid black;
   border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
-/* cards emprendimiento */
+.info h4{
+  font-size: 40px;
+  padding-bottom: 40px;
+}
+.info h5{
+  font-size: 30px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+.info p{
+  font-size: 20px;
+  padding-bottom: 40px;
+}
+.vent-hard{
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.vent-hard h4{
+  font-size: 40px;
+  padding-bottom: 40px;
+}
+.vent-hard p{
+  font-size: 20px;
+  padding-bottom: 40px;
+}
+/* CARDS SERVICIO */
 .wrapper {
   padding: 10px 10%;
 }
-#card-area {
-  padding: 50px 0;
-}
+
 .box-area {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax250px, 1fr);
-  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
   margin-top: 50px;
 }
+
 .box {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  box-shadow: 5px 5px 15px rgb(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  background-color: #222;
+  text-align: center;
 }
+
 .box img {
   border-radius: 10px;
   display: block;
-  transition: transform 0.5s;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
+
+.box:hover img {
+  transform: scale(1.1);
+}
+
 .overlay {
   height: 0;
   width: 100%;
@@ -135,35 +226,35 @@ ul {
   font-size: 14px;
   transition: height 0.5s;
 }
-.overlay h3 {
-  font-weight: 500;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  font-family: bebas neue;
-  font-size: 30px;
-  letter-spacing: 2px;
-}
-.overlay a {
-  margin-top: 10px;
-  color: #262626;
-  text-decoration: none;
-  font-size: 14px;
-  background: #fff;
-  border-radius: 50px;
-  text-align: center;
-  padding: 5px 15px;
-}
-.boxLhover img {
-  transform: scale(1.2);
-}
+
 .box:hover .overlay {
   height: 100%;
 }
-.box img {
-  height: 200px;
-  width: 200px;
+
+.overlay h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  margin: 10px 0;
+  letter-spacing: 2px;
+  color: #fff;
 }
-/* Tablets */
+
+.overlay p {
+  color: #ddd;
+}
+
+.overlay a {
+  margin-top: 10px;
+  color: #262626;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 50px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+/* RESPONSIVE DE TABLET */
+
 @media (min-width: 768px) and (max-width: 992px) {
   .label_hamburguesa {
     display: none;
@@ -174,13 +265,31 @@ ul {
     height: auto;
     flex-direction: row;
     gap: 1rem;
+    background-color: transparent;
   }
   .links {
     font-size: 1.2rem;
-    transition: all 0.3s;
     padding: 0.2rem 0.7rem;
   }
   .links:hover {
     background-color: #5f1192;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .label_hamburguesa {
+    display: none;
+  }
+  .ul_link {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    background-color: transparent;
+    gap: 2rem;
+  }
+  .links {
+    font-size: 1rem;
+    padding: 0.3rem 0.8rem;
   }
 }
