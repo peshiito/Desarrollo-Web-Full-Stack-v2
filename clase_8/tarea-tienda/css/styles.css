@@ -356,61 +356,63 @@ main {
   }
 
   .links {
-    font-size: 2.1rem;
+    font-size: 1.7rem;
     padding: 0.3rem 0.8rem;
   }
 
   .top-main .titulo h1 {
-    font-size: 110px;
+    font-size: 70px; 
   }
 
   .top-main .titulo h3 {
-    font-size: 40px;
+    font-size: 28px; 
   }
 
   .info h4 {
-    font-size: 75px;
+    font-size: 50px;
     padding-bottom: 20px;
     padding-top: 20px;
   }
 
   .info h5 {
-    font-size: 60px;
+    font-size: 38px; 
     padding-bottom: 20px;
     padding-top: 20px;
   }
 
   .info p {
-    font-size: 40px;
+    font-size: 24px; 
   }
 
   .box-area {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 70px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* antes 400px */
+    gap: 50px; 
   }
 
   .box img {
-    height: 300px;
+    height: 220px;
   }
 
   .overlay h3 {
-    font-size: 55px;
+    font-size: 36px;
   }
 
   .overlay p {
-    font-size: 28px; 
+    font-size: 18px; 
   }
 
   .overlay a {
-    font-size: 22px; 
-    padding: 10px 25px;
+    font-size: 16px; 
+    padding: 8px 18px; 
   }
-  .vent-hard h4{
-    font-size: 75px;
+
+  .vent-hard h4 {
+    font-size: 50px; 
     padding-bottom: 20px;
     padding-top: 20px;
   }
-  .vent-hard p{
-    font-size: 40px;
+
+  .vent-hard p {
+    font-size: 24px; 
   }
 }
