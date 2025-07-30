@@ -28,7 +28,6 @@ ul {
   list-style: none;
 }
 
-/* HEADER FIJO */
 .header {
   position: fixed;
   top: 0;
@@ -54,8 +53,8 @@ main {
 }
 
 .logo {
-  height: 150px;
-  width: 150px;
+  height: 75px;
+  width: 75px;
 }
 
 .label_hamburguesa {
@@ -93,7 +92,6 @@ main {
   font-weight: bold;
 }
 
-/* HERO SECTION */
 .top-main {
   position: relative;
   width: 100%;
@@ -141,7 +139,6 @@ main {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-/* CONTENIDO INTERMEDIO */
 .mid-main {
   border: 3px solid black;
   border-radius: 15px;
@@ -190,7 +187,6 @@ main {
   padding-bottom: 40px;
 }
 
-/* CARDS SERVICIO */
 .wrapper {
   padding: 10px 10%;
 }
@@ -269,7 +265,6 @@ main {
   text-decoration: none;
 }
 
-/* RESPONSIVE DE TABLET */
 @media (min-width: 768px) and (max-width: 992px) {
   .label_hamburguesa {
     display: none;
@@ -345,8 +340,9 @@ main {
     font-size: 40px;
   }
 }
+
 @media (min-width: 1900px) {
-    .label_hamburguesa {
+  .label_hamburguesa {
     display: none;
   }
 
@@ -369,6 +365,52 @@ main {
   }
 
   .top-main .titulo h3 {
+    font-size: 40px;
+  }
+
+  .info h4 {
+    font-size: 75px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .info h5 {
+    font-size: 60px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .info p {
+    font-size: 40px;
+  }
+
+  .box-area {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 70px;
+  }
+
+  .box img {
+    height: 300px;
+  }
+
+  .overlay h3 {
+    font-size: 55px;
+  }
+
+  .overlay p {
+    font-size: 28px; 
+  }
+
+  .overlay a {
+    font-size: 22px; 
+    padding: 10px 25px;
+  }
+  .vent-hard h4{
+    font-size: 75px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+  .vent-hard p{
     font-size: 40px;
   }
 }
