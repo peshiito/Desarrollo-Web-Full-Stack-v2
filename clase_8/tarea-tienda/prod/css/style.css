@@ -1,0 +1,6 @@
+.navbar ul{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    list-style: none;
+}

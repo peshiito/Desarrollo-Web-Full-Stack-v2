@@ -1,0 +1,307 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.2rem;
+  min-height: 100vh;
+  padding: 20px;
+  background-image: url(/clase_7/tarea2/img/fondo4k.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.grid-container > * {
+  box-shadow: 10px 6px 37px -13px rgb(51, 51, 51, 0.74);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.grid-container {
+  display: grid;
+  gap: 20px;
+  grid-template:
+    "header" 200px
+    "navbar" 50px
+    "main" auto
+    "sidebar" 50px
+    "footer" 100px;
+}
+
+/* Áreas */
+.heading {
+  grid-area: header;
+  background-color: blueviolet;
+}
+.navbar {
+  grid-area: navbar;
+  background-color: rgb(202, 175, 226);
+}
+.main {
+  grid-area: main;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgb(0, 0, 0);
+}
+.asider {
+  grid-area: sidebar;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.footer {
+  grid-area: footer;
+  background-color: black;
+}
+
+/* Responsive tablet */
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template:
+      "header navbar" 50px
+      "header navbar" 50px
+      "sidebar main" auto
+      "footer footer" 100px /
+      200px auto;
+  }
+}
+
+/* Responsive desktop */
+@media (min-width: 992px) {
+  .grid-container {
+    grid-template:
+      "header navbar navbar" 50px 100px
+      "main main sidebar" auto
+      "footer footer footer" 100px /
+      200px auto 200px;
+  }
+}
+
+/* header */
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+/* navbar */
+.navbar {
+  align-content: center;
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  justify-content: end;
+  align-self: center;
+}
+.navbar a {
+  border: 2px solid black;
+  text-decoration: none;
+  border-radius: 9px;
+  padding: 5px;
+  background-color: white;
+  transition: all 0.5s ease-in-out;
+}
+.navbar a:hover {
+  transform: scale(1.2);
+  background-color: aqua;
+}
+
+/* main contenido */
+.main {
+  gap: 25px;
+}
+.nombre {
+  gap: 100px;
+}
+.nombre h1 {
+  font-size: 50px;
+}
+.nombre h2 {
+  font-size: 30px;
+}
+.info {
+  border: 2px solid rgb(121, 115, 115);
+  display: flex;
+  box-shadow: 10px 6px 37px -13px rgb(51, 51, 51, 0.74);
+  border-radius: 10px;
+  padding: 20px;
+}
+.info .fotop {
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+}
+.info p {
+  padding-left: 50px;
+  text-align: start;
+  font-size: 20px;
+  align-content: center;
+}
+.exp {
+  margin-top: 10px;
+  border: 2px solid rgb(121, 115, 115);
+  box-shadow: 10px 6px 37px -13px rgb(51, 51, 51, 0.74);
+  border-radius: 10px;
+  padding: 20px;
+}
+.exp h3 {
+  text-align: start;
+  padding-bottom: 10px;
+}
+.exp p {
+  text-align: start;
+  padding-left: 50px;
+}
+
+/* sección de cartas */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+  justify-items: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 40px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease;
+  display: flex;
+  align-items: flex-end;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+}
+
+.card img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 40px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 40px;
+  background: linear-gradient(
+    to bottom,
+    rgba(208, 195, 195, 0.5),
+    rgb(227, 16, 16)
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 2;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.info-card {
+  position: relative;
+  z-index: 3;
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease;
+  padding: 20px;
+  text-align: center;
+}
+
+.card:hover .info-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+/* boton carta */
+.info-card .btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #4b5563;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: all 0.3s ease-in;
+  display: inline-block;
+}
+
+.info-card .btn:hover {
+  background-color: #1f2937;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+footer {
+  color: white;
+}
+.redes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.redes a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.redes i {
+  font-size: 30px;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  padding: 15px;
+  transition: 0.3s;
+}
+
+.redes a span {
+  margin-top: 8px;
+  color: white;
+  font-size: 16px;
+}
+
+.redes a:hover i {
+  transform: scale(1.2);
+  background-color: yellow;
+  color: black;
+}

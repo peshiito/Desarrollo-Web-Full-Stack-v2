@@ -1,0 +1,80 @@
+/* --- Estilos Generales --- */
+body {
+    /* Fondo oscuro para que la tarjeta resalte, como en el diagrama */
+    background-color: #1e1e1e; 
+    /* Usamos una fuente que imita la escritura a mano, importada de Google Fonts.
+       Si no carga, usará una fuente genérica sans-serif */
+    font-family: 'Patrick Hand', sans-serif;
+    /* Centramos la tarjeta en la página para una mejor visualización */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* Añade espacio por si la pantalla es pequeña */
+    margin: 0;
+}
+
+/* --- Contenedor Principal de la Tarjeta --- */
+/* Este es el <div class="card">, el marco blanco del dibujo */
+.card {
+    background-color: #2b2b2b;          /* Color de fondo oscuro para la tarjeta */
+    border: 3px solid white;              /* Borde blanco y grueso */
+    border-radius: 20px;                  /* Esquinas redondeadas para un look suave */
+    width: 320px;                         /* Ancho fijo para la tarjeta */
+    padding: 25px;                        /* Espacio interno para que el contenido no toque los bordes */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra para darle profundidad */
+}
+
+/* --- Contenedor de la Información --- */
+/* Este es el <div class="info-card"> que organiza los elementos internos */
+.info-card {
+    display: flex;                        /* Usamos flexbox... */
+    flex-direction: column;               /* ...para apilar los elementos verticalmente */
+    align-items: center;                  /* Centra todo horizontalmente */
+    gap: 15px;                            /* Espacio entre cada elemento (título, imagen, etc.) */
+    text-align: center;                   /* Centra el texto de todos los elementos hijos */
+}
+
+/* --- Título de la Tarjeta (h4) --- */
+.info-card h4 {
+    color: #70c14c;                       /* Color verde, como en el diagrama */
+    font-size: 28px;                      /* Tamaño de letra más grande para el título */
+    margin: 0;                            /* Quitamos el margen por defecto del h4 */
+}
+
+/* --- Imagen de la Tarjeta (img) --- */
+.info-card img {
+    max-width: 100%;                      /* La imagen no superará el ancho de la tarjeta */
+    height: auto;                         /* Mantiene la proporción de la imagen */
+    border-radius: 15px;                  /* Esquinas redondeadas, como el recuadro "imagen" */
+    border: 3px solid #8b5742;            /* Borde de color rojo-marrón */
+}
+
+/* --- Descripción de la Tarjeta (p) --- */
+.info-card p {
+    background-color: #2e7d32;            /* Fondo verde oscuro, como el recuadro "descripcion" */
+    color: white;                         /* Texto de color blanco para que contraste */
+    padding: 15px;                        /* Espacio interno para que el texto no toque los bordes */
+    border-radius: 15px;                  /* Esquinas redondeadas */
+    margin: 0;                            /* Quitamos el margen por defecto del párrafo */
+    font-size: 18px;
+}
+
+/* --- Botón "Saber más" (a.btn) --- */
+.info-card .btn {
+    background-color: #4285f4;            /* Fondo azul, como el botón del diagrama */
+    color: white;                         /* Texto de color blanco */
+    padding: 10px 25px;                   /* Espacio interno (vertical y horizontal) */
+    border-radius: 15px;                  /* Esquinas redondeadas */
+    text-decoration: none;                /* Quitamos el subrayado típico de los enlaces */
+    font-size: 20px;
+    font-weight: bold;                    /* Texto en negrita */
+    display: inline-block;                /* Permite aplicar padding y mantenerlo en línea */
+    border: 2px solid #a0c3ff;            /* Un borde azul más claro para darle detalle */
+    transition: background-color 0.3s;    /* Transición suave al pasar el ratón por encima */
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+.info-card .btn:hover {
+    background-color: #357ae8;            /* Se oscurece un poco el azul */
+}
