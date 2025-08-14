@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="miBoton">Haz clic</button>
+    <p id="miParrafo">Texto original</p>
+
+    <script>
+      const boton = document.getElementById("miBoton");
+      const parrafo = document.getElementById("miParrafo");
+
+      boton.addEventListener("click", function () {
+        parrafo.textContent = "¡Texto cambiado!";
+        parrafo.style.color = "blue";
+      });
+    </script>
+
+    <section class="pruevas">
+      <h1 class="text_color">ROJO</h1>
+      <h1 class="text_color">AZUL</h1>
+      <button id="boton_cambia_colores">Cambia todo a rojo</button>
+
+      <script>
+        // como llamar a un elemento de hmtl en javascript
+
+        // Por id
+        // document.getElementById("miId");
+
+        // Por clase (devuelve una colección)
+        // document.getElementsByClassName("miClase");
+
+        // Por etiqueta (devuelve una colección)
+        // document.getElementsByTagName("p");
+
+        // Selectores modernos (devuelve el primero que encuentre)
+        // document.querySelector(".miClase");
+
+        // Selectores modernos (devuelve todos los que coincidan)
+        // document.querySelectorAll("p.miClase");
+
+        const color_text = document.querySelectorAll(".text_color");
+        const boton_magico = document.querySelectorAll(".boton_cambia_colores");
+
+        // boton.addEventListener("click", function () {   ***Escucha el evento click sobre el botón. ***
+        // ***Cuando se haga click, ejecuta la función que:***
+        // console.log("¡Botón clickeado!");
+        // });
+        boton_magico.addEventListener("click", function () {
+          color_text.textContent = "¡Texto cambiado!";
+          color_text.style.color = "blue";
+        });
+      </script>
+    </section>
+  </body>
+</html>
