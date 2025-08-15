@@ -4,56 +4,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <button id="miBoton">Haz clic</button>
-    <p id="miParrafo">Texto original</p>
+    <h1>Cosas de clase que estoy probando</h1>
+    <p>AYudaaaaa</p>
 
-    <script>
-      const boton = document.getElementById("miBoton");
-      const parrafo = document.getElementById("miParrafo");
+    <section class="datos">
+      <div class="title_form">
+        <h1>Formulario Completo</h1>
+        <p>Pone tus datos come-hombres</p>
+      </div>
+      <form id="formulario_inform" class="fomulario_solicitud">
+        <h3>Introduce tu nombre y edad</h3>
 
-      boton.addEventListener("click", function () {
-        parrafo.textContent = "¡Texto cambiado!";
-        parrafo.style.color = "blue";
-      });
-    </script>
+        <div class="nombre_edad">
+          <div>
+            <label for="nombre" class="nombre_label">Nombre:</label>
+            <input type="text" class="nombre" id="nombre" required />
+          </div>
+          <div>
+            <label for="edad" class="edad_label">Edad:</label>
+            <input type="number" class="edad" id="edad" required />
+          </div>
+        </div>
 
-    <section class="pruevas">
-      <h1 class="text_color">ROJO</h1>
-      <h1 class="text_color">AZUL</h1>
-      <button id="boton_cambia_colores">Cambia todo a rojo</button>
+        <h3>Introduzca la información de su domicilio</h3>
 
-      <script>
-        // como llamar a un elemento de hmtl en javascript
+        <div class="info_ubicacion">
+          <div>
+            <label for="city" class="ciudad_label">Ciudad:</label>
+            <input type="text" id="city" class="input_ciudad" required />
+          </div>
+          <div>
+            <label for="calle" class="calle_label">Nombre de la calle:</label>
+            <input type="text" id="calle" class="input_calle" required />
+          </div>
+          <div>
+            <label for="num_calle" class="num_calle_label">Altura:</label>
+            <input type="number" id="num_calle" class="num_calle_input" />
+          </div>
+        </div>
 
-        // Por id
-        // document.getElementById("miId");
+        <h3>Introduzca su información de contacto</h3>
 
-        // Por clase (devuelve una colección)
-        // document.getElementsByClassName("miClase");
+        <div class="info_contacto">
+          <div>
+            <label for="num_telefono">Num. Teléfono:</label>
+            <input type="number" id="num_telefono" />
+          </div>
+          <div>
+            <label for="email">Correo Electrónico:</label>
+            <input type="text" id="email" />
+          </div>
+          <div>
+            <label for="num_emergencia">Num. de Emergencia:</label>
+            <input type="text" id="num_emergencia" />
+          </div>
+        </div>
+        <button type="submit">Enviar todos los datos</button>
 
-        // Por etiqueta (devuelve una colección)
-        // document.getElementsByTagName("p");
-
-        // Selectores modernos (devuelve el primero que encuentre)
-        // document.querySelector(".miClase");
-
-        // Selectores modernos (devuelve todos los que coincidan)
-        // document.querySelectorAll("p.miClase");
-
-        const color_text = document.querySelectorAll(".text_color");
-        const boton_magico = document.querySelectorAll(".boton_cambia_colores");
-
-        // boton.addEventListener("click", function () {   ***Escucha el evento click sobre el botón. ***
-        // ***Cuando se haga click, ejecuta la función que:***
-        // console.log("¡Botón clickeado!");
-        // });
-        boton_magico.addEventListener("click", function () {
-          color_text.textContent = "¡Texto cambiado!";
-          color_text.style.color = "blue";
-        });
-      </script>
+        <div class="mensaje"></div>
+      </form>
     </section>
+
+    <script src="index.js"></script>
   </body>
 </html>
