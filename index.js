@@ -17,4 +17,4 @@
 //   document.getElementById('mensaje').textContent = ejemploTwo;
 // });
 
-
+let numero1 = document.getElementById("")
