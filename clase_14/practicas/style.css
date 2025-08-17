@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #f1f1f1;
+  background-color: black;  
 }
 
 /* GRID CONTAINER */
@@ -16,6 +16,9 @@ body {
   grid-template-rows: 100px 60px 1fr 80px; /* header, navbar, contenido, footer */
   gap: 10px;
   min-height: 100vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px ;
 
   /* Áreas del grid */
   grid-template-areas:
@@ -29,7 +32,7 @@ body {
 /* ESTILOS DE ÁREAS */
 .heading {
   grid-area: header;
-  background: #2d3436;
+  background: linear-gradient(135deg,rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -37,17 +40,30 @@ body {
   font-size: 1.5rem;
   gap: 20px;
   padding-left: 20px;
+  border-radius:  0px 0px 20px 20px;
+}
+.heading img {
+  height: auto;
+  width: 200px;
 }
 
 .navbar {
   grid-area: navbar;
-  background: #6c5ce7;
+  background: linear-gradient(145deg,rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
   color: white;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding-right: 50px;
   padding-left: 50px;
+  border-radius: 20px;
+}
+.navbar a {
+  background-color: aliceblue;
+  padding: 15px;
+  border-radius: 20px;
+  color: black;
+  text-decoration: none;
 }
 
 .main {
@@ -56,6 +72,10 @@ body {
   color: white;
   padding: 20px;
   border-radius: 5px;
+}
+.top_main img {
+  height: auto;
+  width: 1500px;
 }
 
 .asider {
