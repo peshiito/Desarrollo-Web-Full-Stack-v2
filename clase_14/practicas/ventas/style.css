@@ -1,3 +1,18 @@
+/* --- Importación de fuentes de Google Fonts --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap");
+
+/* --- Estilos base y variables de color --- */
+:root {
+  --color-dark-blue: #0d1b2a;
+  --color-pink: #d91d8b;
+  --color-yellow: #ffd166;
+  --color-white: #f5f5f5;
+  --color-gray-text: #ccc;
+  --color-light-gray: #e0e0e0;
+  --color-dark-bg: #1a1a1a;
+  --color-black: #000;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,68 +20,459 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f1f1f1;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-dark-bg);
+  color: var(--color-white);
+  line-height: 1.6;
 }
 
-/* GRID CONTAINER */
+/* --- Estructura del Grid Layout para escritorio --- */
 .grid_container {
   display: grid;
-  grid-template-columns: 200px 1fr 200px; /* izquierda, centro, derecha */
-  grid-template-rows: 100px 60px 1fr 80px; /* header, navbar, contenido, footer */
-  gap: 10px;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 20px;
   min-height: 100vh;
-
-  /* Áreas del grid */
+  padding: 20px;
   grid-template-areas:
-    "header header header"
-    "navbar navbar navbar"
-    "aside main main"
-    "aside main main"
-    "footer footer footer";
+    "header header"
+    "navbar navbar"
+    "asider main"
+    "footer footer";
 }
 
-/* ESTILOS DE ÁREAS */
+/* --- Estilos de las secciones principales --- */
 .heading {
   grid-area: header;
-  background: #2d3436;
-  color: white;
+  background: linear-gradient(135deg, #1f2c3d, #3c5473);
+  color: var(--color-white);
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
+  gap: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.heading img {
+  width: 120px;
+  height: auto;
+}
+
+.nombre_empresa {
+  font-family: "Poppins", sans-serif;
+  color: var(--color-pink);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.descripcion_empresa {
+  font-size: 0.9rem;
+  color: var(--color-gray-text);
 }
 
 .navbar {
   grid-area: navbar;
-  background: #6c5ce7;
-  color: white;
+  background-color: #2c3e50;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 20px;
+  z-index: 10;
+}
+
+.navbar a {
+  background-color: #3b5066;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  background: linear-gradient(90deg, #d91d8b, #a5166a);
+  transform: translateY(-3px);
+  color: white;
+}
+
+.asider {
+  grid-area: asider;
+  background: linear-gradient(180deg, #d91d8b, #a5166a);
+  color: var(--color-white);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 90px;
+  align-self: start;
+}
+
+.titular_calculadora h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.titular_calculadora p {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.calculadora form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.calculadora label,
+.calculadora h3 {
+  font-weight: bold;
+}
+
+.calculadora input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.calculadora button {
+  padding: 10px 20px;
+  background-color: #2c3e50;
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calculadora button:hover {
+  background-color: #3b5066;
 }
 
 .main {
   grid-area: main;
-  background: #0984e3;
-  color: white;
-  padding: 20px;
-  border-radius: 5px;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.asider {
-  grid-area: aside;
-  background: #fdcb6e;
-  color: #2d3436;
-  padding: 20px;
-  border-radius: 5px;
+.titulo h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  color: var(--color-yellow);
 }
 
+.titulo h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.seccion-ventas h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.impresoras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* --- Estilos de las tarjetas de productos (cards) --- */
+.card {
+  background-color: #2c3e50;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  background: #444;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-yellow);
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-gray-text);
+  text-align: center;
+  flex-grow: 1;
+}
+
+.card-divider {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 15px 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-price {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.card-price span {
+  font-size: 1.2rem;
+  color: var(--color-gray-text);
+  margin-right: 5px;
+}
+
+.card-btn {
+  padding: 8px 15px;
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-btn:hover {
+  background-color: #a5166a;
+}
+
+.card-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-white);
+}
+
+/* --- Variantes de color para las tarjetas --- */
+.card-pink {
+  background-color: #d91d8b;
+  box-shadow: 0 8px 16px rgba(217, 29, 139, 0.5);
+}
+.card-pink .card-title,
+.card-pink .card-price {
+  color: var(--color-white);
+}
+.card-pink .card-btn {
+  background-color: var(--color-dark-blue);
+}
+.card-pink .card-btn:hover {
+  background-color: #1b3d5b;
+}
+
+.card-yellow {
+  background-color: #ffd166;
+  box-shadow: 0 8px 16px rgba(255, 209, 102, 0.5);
+}
+.card-yellow .card-title,
+.card-yellow .card-price {
+  color: var(--color-black);
+}
+.card-yellow .card-subtitle,
+.card-yellow .card-price span {
+  color: #555;
+}
+.card-yellow .card-btn {
+  background-color: var(--color-dark-blue);
+}
+.card-yellow .card-btn svg {
+  fill: var(--color-white);
+}
+.card-yellow .card-btn:hover {
+  background-color: #1b3d5b;
+}
+
+.card-white {
+  background-color: var(--color-white);
+  box-shadow: 0 8px 16px rgba(245, 245, 245, 0.5);
+}
+.card-white .card-title,
+.card-white .card-price {
+  color: var(--color-black);
+}
+.card-white .card-subtitle,
+.card-white .card-price span {
+  color: #555;
+}
+.card-white .card-btn {
+  background-color: var(--color-dark-blue);
+}
+.card-white .card-btn svg {
+  fill: var(--color-white);
+}
+.card-white .card-btn:hover {
+  background-color: #1b3d5b;
+}
+
+.card-dark-blue {
+  background-color: #2c3e50;
+  box-shadow: 0 8px 16px rgba(44, 62, 80, 0.5);
+}
+.card-dark-blue .card-title,
+.card-dark-blue .card-price {
+  color: var(--color-yellow);
+}
+.card-dark-blue .card-btn {
+  background-color: var(--color-pink);
+}
+.card-dark-blue .card-btn:hover {
+  background-color: #a5166a;
+}
+
+/* --- Footer --- */
 .footer {
   grid-area: footer;
-  background: #d63031;
-  color: white;
+  background: linear-gradient(135deg, #1f2c3d, #3c5473);
+  color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Media Queries para diseño responsive --- */
+
+/* Pantallas extra pequeñas (móviles, 576px y menos) */
+@media (max-width: 576px) {
+  .grid_container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "navbar"
+      "asider"
+      "main"
+      "footer";
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .heading {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .heading img {
+    width: 80px;
+  }
+
+  .descripcion_empresa {
+    margin: 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .navbar a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .asider {
+    position: static;
+    margin-top: 0;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .productos {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Pantallas pequeñas (tabletas, 768px y menos) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .grid_container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "navbar"
+      "asider"
+      "main"
+      "footer";
+  }
+
+  .asider {
+    position: static;
+    margin-top: 0;
+  }
+
+  .productos {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* Pantallas medianas (portátiles, 992px y menos) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .grid_container {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .asider {
+    top: 90px;
+  }
+
+  .productos {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* Pantallas grandes (escritorio, 1200px y más) */
+@media (min-width: 993px) {
+  .grid_container {
+    grid-template-columns: 250px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .asider {
+    top: 90px;
+  }
 }
