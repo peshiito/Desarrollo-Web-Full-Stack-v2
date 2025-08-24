@@ -6,21 +6,20 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: black;  
+  background-color: black;
 }
 
 /* GRID CONTAINER */
 .grid_container {
   display: grid;
-  grid-template-columns: 200px 1fr 200px; /* izquierda, centro, derecha */
-  grid-template-rows: 100px 60px 1fr 80px; /* header, navbar, contenido, footer */
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: 100px 60px 1fr 80px;
   gap: 10px;
   min-height: 100vh;
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 10px ;
+  padding-bottom: 10px;
 
-  /* Áreas del grid */
   grid-template-areas:
     "header header header"
     "navbar navbar navbar"
@@ -32,7 +31,7 @@ body {
 /* ESTILOS DE ÁREAS */
 .heading {
   grid-area: header;
-  background: linear-gradient(135deg,rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
+  background: linear-gradient(135deg, rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -40,7 +39,7 @@ body {
   font-size: 1.5rem;
   gap: 20px;
   padding-left: 20px;
-  border-radius:  0px 0px 20px 20px;
+  border-radius: 0px 0px 20px 20px;
 }
 .heading img {
   height: auto;
@@ -49,7 +48,7 @@ body {
 
 .navbar {
   grid-area: navbar;
-  background: linear-gradient(145deg,rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
+  background: linear-gradient(145deg, rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -70,13 +69,48 @@ body {
   grid-area: main;
   background: #0984e3;
   color: white;
-  padding: 20px;
   border-radius: 5px;
 }
-.top_main img {
-  height: auto;
-  width: 1500px;
+
+/* A partir de aquí, se aplican los cambios para la imagen y el texto */
+.fondo_img_top {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Puedes ajustar la altura como prefieras */
+  border-radius: 5px; /* Para que la imagen se adapte a los bordes redondeados del main */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del contenedor */
 }
+
+.fondo_img_top .fondo_top_main { /* Se selecciona la imagen con su clase */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%); /* Ajusta este valor para el nivel de opacidad */
+}
+
+.texto_sobre_imagen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  width: 80%; /* Para que el texto no se pegue a los bordes */
+}
+/* Estilos para los títulos que están dentro de .texto_sobre_imagen */
+.texto_sobre_imagen h1,
+.texto_sobre_imagen h3 {
+  margin: 0;
+  padding: 10px;
+  /* Puedes añadir más estilos de fuente si lo deseas */
+}
+
+/* NO OLVIDES QUITAR ESTO, YA NO ES NECESARIO */
+/* .top_main img {
+  height: auto;
+  width: 2000px;
+} */
 
 .asider {
   grid-area: aside;
