@@ -1,3 +1,4 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: black;
+  background-color: black;  
 }
 
 /* GRID CONTAINER */
@@ -18,20 +19,20 @@ body {
   min-height: 100vh;
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 10px ;
 
   grid-template-areas:
     "header header header"
     "navbar navbar navbar"
-    "aside main main"
-    "aside main main"
+    "main main main"
+    "main main main"
     "footer footer footer";
 }
 
-/* ESTILOS DE ÁREAS */
+/* ---------- HEADER ---------- */
 .heading {
   grid-area: header;
-  background: linear-gradient(135deg, rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
+  background: linear-gradient(135deg,rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -39,92 +40,175 @@ body {
   font-size: 1.5rem;
   gap: 20px;
   padding-left: 20px;
-  border-radius: 0px 0px 20px 20px;
+  border-radius:  0px 0px 20px 20px;
 }
 .heading img {
   height: auto;
-  width: 200px;
+  width: 180px;
 }
 
+/* ---------- NAVBAR ---------- */
 .navbar {
   grid-area: navbar;
-  background: linear-gradient(145deg, rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
+  background: linear-gradient(145deg,rgba(46, 46, 46, 1) 0%, rgba(71, 71, 71, 1) 62%, rgba(87, 87, 87, 1) 100%);
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding: 10px 50px;
   border-radius: 20px;
-}
-.navbar a {
-  background-color: aliceblue;
-  padding: 15px;
-  border-radius: 20px;
-  color: black;
-  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
+.navbar a {
+  background: #f5f5f5;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(242, 68, 170, 1) 0%,
+    rgba(212, 15, 123, 1) 34%,
+    rgba(150, 0, 88, 1) 100%
+  );
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ---------- MAIN ---------- */
 .main {
   grid-area: main;
-  background: #0984e3;
+  background: #1e1e1e;
   color: white;
-  border-radius: 5px;
-}
-
-/* A partir de aquí, se aplican los cambios para la imagen y el texto */
-.fondo_img_top {
-  position: relative;
-  width: 100%;
-  height: 400px; /* Puedes ajustar la altura como prefieras */
-  border-radius: 5px; /* Para que la imagen se adapte a los bordes redondeados del main */
-  overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del contenedor */
-}
-
-.fondo_img_top .fondo_top_main { /* Se selecciona la imagen con su clase */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(50%); /* Ajusta este valor para el nivel de opacidad */
-}
-
-.texto_sobre_imagen {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  z-index: 2;
-  width: 80%; /* Para que el texto no se pegue a los bordes */
-}
-/* Estilos para los títulos que están dentro de .texto_sobre_imagen */
-.texto_sobre_imagen h1,
-.texto_sobre_imagen h3 {
-  margin: 0;
-  padding: 10px;
-  /* Puedes añadir más estilos de fuente si lo deseas */
-}
-
-/* NO OLVIDES QUITAR ESTO, YA NO ES NECESARIO */
-/* .top_main img {
-  height: auto;
-  width: 2000px;
-} */
-
-.asider {
-  grid-area: aside;
-  background: #fdcb6e;
-  color: #2d3436;
   padding: 20px;
   border-radius: 5px;
 }
+.top_main img {
+  height: auto;
+  width: 1500px;
+}
 
+/* TEXTO SOBRE IMAGEN */
+.texto_banner {
+  position: absolute;
+  top: 30%; /* 👈 más arriba, cerca del nav */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  max-width: 80%;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.texto_banner h1 {
+  font-size: 60px;
+  margin-bottom: 15px;
+  color: #d91d8b;
+}
+
+.texto_banner h3 {
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ---------- MID MAIN ---------- */
+.mid_min {
+  padding: 30px;
+}
+
+.mid_min h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ff4c4c;
+}
+
+.presentacion,
+.servicios {
+  margin-bottom: 40px;
+}
+
+.presentacion h3,
+.servicios h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #ffd166;
+}
+
+.presentacion p,
+.servicios p {
+  margin-bottom: 15px;
+  text-align: justify;
+  font-size: 20px;
+}
+
+/* ---------- FOOTER ---------- */
 .footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   grid-area: footer;
-  background: #d63031;
+  background: linear-gradient(145deg, #2e2e2e, #575757);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
+  border-radius: 20px;
+  box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- ANIMACIÓN ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 30px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .grid_container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "navbar"
+      "main"
+      "footer";
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .navbar a {
+    padding: 8px 15px;
+  }
+
+  .texto_banner h1 {
+    font-size: 2rem;
+  }
+
+  .texto_banner h3 {
+    font-size: 1rem;
+  }
 }
