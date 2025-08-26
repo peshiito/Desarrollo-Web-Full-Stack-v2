@@ -19,7 +19,7 @@ document
 
 const array_numeros = [];
 
-//  función para sumar arrays
+//  funcion para sumar arrays
 function sumarArray(arr) {
   return arr.reduce((acc, num) => acc + num, 0);
 }
@@ -52,3 +52,49 @@ document
   });
 
 // PUNTO 3
+let array_aelatorios_par = [];
+let array_aelatorios_impar = [];
+
+document
+  .querySelector("#formulario_generador")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    array_aelatorios_par = [];
+    array_aelatorios_impar = [];
+
+    const mensaje_random = document.querySelector("#mensaje_punto3");
+
+    for (let i = 1; i <= 5; i++) {
+      let random = Math.floor(Math.random() * 100);
+      // array_numeros_aelatorios.push(random);
+      if (random % 2 === 0) {
+        array_aelatorios_par.push(random);
+      } else if (random % 2 !== 0) {
+        array_aelatorios_impar.push(random);
+      } else {
+        mensaje_random.innerHTML = `
+          <p>Numero no valido</p>`;
+      }
+    }
+
+    mensaje_random.innerHTML = `
+          <p>Números ingresados pares: ${array_aelatorios_par}</p>
+          <p>Números ingresados impares: ${array_aelatorios_impar}</p> `;
+  });
+
+// PUNTO 4
+let biblioteca_palabras = [];
+
+document
+  .querySelector("#formulario_palabras")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let palabra = document.querySelector("#input_palabras").value;
+    let array_palabras = palabra.split(",");
+
+    biblioteca_palabras.push(array_palabras);
+
+    console.log(array_palabras);
+  });
