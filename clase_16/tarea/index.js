@@ -67,7 +67,6 @@ document
 
     for (let i = 1; i <= 5; i++) {
       let random = Math.floor(Math.random() * 100);
-      // array_numeros_aelatorios.push(random);
       if (random % 2 === 0) {
         array_aelatorios_par.push(random);
       } else if (random % 2 !== 0) {
@@ -86,15 +85,60 @@ document
 // PUNTO 4
 let biblioteca_palabras = [];
 
+function busqueda(palabra) {
+  return biblioteca_palabras.includes(palabra);
+}
+
 document
   .querySelector("#formulario_palabras")
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
-    let palabra = document.querySelector("#input_palabras").value;
-    let array_palabras = palabra.split(",");
+    let palabraInput = document.querySelector("#input_palabras").value;
+    let array_palabras = palabraInput.split(",").map(p => p.trim()); // quitar espacios
 
-    biblioteca_palabras.push(array_palabras);
+    biblioteca_palabras.push(...array_palabras);
 
-    console.log(array_palabras);
+    let palabraBuscada = document.querySelector("#input_buscador").value.trim();
+    let existe = busqueda(palabraBuscada);
+
+    const mensaje = document.querySelector("#mensaje_punto4");
+    mensaje.innerHTML = `
+      <p><strong>Palabras ingresadas:</strong> ${biblioteca_palabras.join(", ")}</p>
+      <p><strong>Palabra buscada:</strong> ${palabraBuscada} ${
+      existe ? " está en la lista" : " no está en la lista"
+    }</p>
+    `;
+
+    document.querySelector("#input_palabras").value = "";
+    document.querySelector("#input_buscador").value = "";
   });
+
+  // PUNTO 5
+
+// Función factorial que también genera la cadena de pasos
+function factorialize(num) {
+  let resultado = 1;
+  let cadena = "";
+
+  for (let i = num; i >= 1; i--) {
+    resultado *= i;
+    cadena += i;
+    if (i > 1) cadena += " x ";
+  }
+
+  return cadena + " = " + resultado;
+}
+
+document.querySelector("#formulario_punto5").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let numero = parseInt(document.querySelector("#input_vectorial").value, 10);
+  let resultadoFactorial = factorialize(numero);
+
+  document.querySelector("#mensaje_punto5").innerHTML = resultadoFactorial;
+});
+// let numero_factorizado=factorialize(21);
+// console.log(numero_factorizado)
+
+// PUNTO 6 

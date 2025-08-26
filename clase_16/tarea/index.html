@@ -9,7 +9,8 @@
     <header>
       <h1>Tarea en Clase</h1>
       <p>Resolucion de ejercicios del 1 al 10 (JavaScript)</p>
-
+    </header>
+    <main>
       <section class="punto1">
         <div class="presentacion">
           <h2>Punto 1</h2>
@@ -83,18 +84,54 @@
         </div>
         <div class="contenido_punto4">
           <form id="formulario_palabras">
-            <label for="input_palabras">Ingrese 5 palabras</label>
+            <label for="input_palabras"
+              >Ingrese palabras separadas por coma</label
+            >
             <input type="text" id="input_palabras" />
-            <button type="submit">Sumar palabra</button>
-          </form>
-          <div id="mensaje_punto4"></div>
 
+            <label for="input_buscador">Palabra a buscar</label>
+            <input type="text" id="input_buscador" />
+
+            <button type="submit">Agregar y buscar</button>
+          </form>
           <div id="mensaje_punto4"></div>
         </div>
       </section>
 
-      <section></section>
-    </header>
+      <section class="punto5">
+        <div class="presentacion5">
+          <h2>Punto 5</h2>
+          <p>Calcula el factorial de un número y muestra todos los pasos</p>
+        </div>
+
+        <div class="contenido_punto5">
+          <form id="formulario_punto5">
+            <input
+              type="number"
+              id="input_vectorial"
+              placeholder="Ingrese un número"
+            />
+            <button type="submit">Calcular factorial</button>
+          </form>
+
+          <div id="mensaje_punto5"></div>
+        </div>
+      </section>
+      <section id="punto6">
+        <div class="presentacion6">
+          <h2>Punto 6</h2>
+          <h3>Números primos</h3>
+          <p>Crea una función que determine si un número es primo</p>
+          <p>Muestra todos los números primos entre 1 y 100</p>
+        </div>
+        <div class="contenido_punto6">
+          <form id="primos">
+            <button type="submit">Boton Aleatorio</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
     <script src="index.js"></script>
   </body>
 </html>
