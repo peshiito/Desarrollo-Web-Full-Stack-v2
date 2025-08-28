@@ -95,7 +95,7 @@ document
     e.preventDefault();
 
     let palabraInput = document.querySelector("#input_palabras").value;
-    let array_palabras = palabraInput.split(",").map(p => p.trim()); // quitar espacios
+    let array_palabras = palabraInput.split(",").map((p) => p.trim());
 
     biblioteca_palabras.push(...array_palabras);
 
@@ -104,7 +104,9 @@ document
 
     const mensaje = document.querySelector("#mensaje_punto4");
     mensaje.innerHTML = `
-      <p><strong>Palabras ingresadas:</strong> ${biblioteca_palabras.join(", ")}</p>
+      <p><strong>Palabras ingresadas:</strong> ${biblioteca_palabras.join(
+        ", "
+      )}</p>
       <p><strong>Palabra buscada:</strong> ${palabraBuscada} ${
       existe ? " está en la lista" : " no está en la lista"
     }</p>
@@ -114,9 +116,8 @@ document
     document.querySelector("#input_buscador").value = "";
   });
 
-  // PUNTO 5
+// PUNTO 5
 
-// Función factorial que también genera la cadena de pasos
 function factorialize(num) {
   let resultado = 1;
   let cadena = "";
@@ -130,15 +131,17 @@ function factorialize(num) {
   return cadena + " = " + resultado;
 }
 
-document.querySelector("#formulario_punto5").addEventListener("submit", function(e) {
-  e.preventDefault();
+document
+  .querySelector("#formulario_punto5")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  let numero = parseInt(document.querySelector("#input_vectorial").value, 10);
-  let resultadoFactorial = factorialize(numero);
+    let numero = parseInt(document.querySelector("#input_vectorial").value, 10);
+    let resultadoFactorial = factorialize(numero);
 
-  document.querySelector("#mensaje_punto5").innerHTML = resultadoFactorial;
-});
+    document.querySelector("#mensaje_punto5").innerHTML = resultadoFactorial;
+  });
 // let numero_factorizado=factorialize(21);
 // console.log(numero_factorizado)
 
-// PUNTO 6 
+// PUNTO 6
