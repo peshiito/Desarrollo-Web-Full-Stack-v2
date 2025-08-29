@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section class="punto1">
+        <div class="presentacion1">
+          <h2>Punto 1</h2>
+          <h3>Contador Interactivo</h3>
+          <p>Incrementar, decrementar y reiniciar el contador</p>
+          <p>Mostrar el valor actual en el DOM</p>
+          <p>
+            Cambiar el color del número a rojo si es negativo y a verde si es
+            positivo
+          </p>
+        </div>
+
+        <div class="contenido1">
+          <p>
+            Estos botones suman, restan y reinician el contador que se encuentra
+            debajo de ellos
+          </p>
+          <div class="botones_contador">
+            <button id="incrementar">Sumar</button>
+            <button id="restar">Restar</button>
+            <button id="reiniciar">Reiniciar</button>
+          </div>
+          <div id="mensaje_contador">
+            <p id="p_contador"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="punto2">
+        <div class="presentacion2">
+          <h2>Punto 2</h2>
+          <h3>Lista de Tareas (To-Do List)</h3>
+          <p>Crea una aplicación de lista de tareas que permita:</p>
+          <ul>
+            <li>Añadir nuevas tareas mediante un formulario</li>
+            <li>Marcar tareas como completadas</li>
+            <li>Eliminar tareas individuales</li>
+            <li>Filtrar tareas por estado (todas, completadas, pendientes)</li>
+            <li>Guardar las tareas en localStorage</li>
+          </ul>
+        </div>
+
+        <div id="contenido2">
+          <!-- FORM NUEVAS TAREAS -->
+          <div class="nuevas_tareas">
+            <form id="formulario_tareas_nuevas">
+              <label for="input_tareas_nuevas">Introduzca su tarea</label>
+              <input
+                type="text"
+                id="input_tareas_nuevas"
+                placeholder="EJ : Cocinar, Correr"
+              />
+              <button id="subir_tareas" type="submit">Subir tarea</button>
+            </form>
+          </div>
+
+          <!-- FORM BUSCAR TAREAS -->
+          <div class="cambiar_tarea">
+            <form id="formulario_actualizar_tareas">
+              <label for="input_tareas_actualizar">
+                Introduzca el nombre de una tarea para poder encontrarla y
+                cambiar su estado
+              </label>
+              <input
+                type="text"
+                id="input_tareas_actualizar"
+                placeholder="EJ : Cocinar, Correr"
+              />
+              <button id="buscar_tareas">Buscar tarea</button>
+            </form>
+          </div>
+          <!-- RESULTADO -->
+          <div id="mensaje_tareas">
+            <p id="tareas_buscadas"></p>
+            <button id="eliminar_tarea">Eliminar</button>
+            <button id="pendiente_tarea">Pendiente</button>
+            <button id="completar_tarea">Completada</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
