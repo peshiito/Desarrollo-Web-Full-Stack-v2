@@ -36,22 +36,18 @@ document.querySelector("#reiniciar").addEventListener("click", function (e) {
 actualizarContador();
 
 // PUNTO 2
+// objeto_tarea
+function nueva_tarea() {
+  const tarea = {
+    nombre: " ",
+    estado: " ",
+  };
+}
 
-let tareas = [];
-let tareas_pendientes = [];
-let tareas_completadas = [];
-
+// ARRAY TAREAS
+const tareas = [];
 // SUMAR TAREA
-document
-  .querySelector("#formulario_tareas_nuevas")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
 
-    const tarea = document.querySelector("#input_tareas_nuevas").value;
-    tareas.push(tarea);
-
-    console.log(tareas);
-  });
+// CAMBIAR ESTADO TAREA
 
 // BORRAR TAREA
-document.querySelectorAll("#");

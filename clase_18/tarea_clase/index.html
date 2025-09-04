@@ -50,40 +50,15 @@
         </div>
 
         <div id="contenido2">
-          <!-- FORM NUEVAS TAREAS -->
-          <div class="nuevas_tareas">
-            <form id="formulario_tareas_nuevas">
-              <label for="input_tareas_nuevas">Introduzca su tarea</label>
+          <div class="nueva_tarea">
+            <form id="form_add_tareas">
               <input
                 type="text"
-                id="input_tareas_nuevas"
-                placeholder="EJ : Cocinar, Correr"
+                id="input_new_tarea"
+                placeholder="EJ: Pagar impuestos, salir a comprar"
               />
-              <button id="subir_tareas" type="submit">Subir tarea</button>
+              <button id="button_add_tarea">Agregar</button>
             </form>
-          </div>
-
-          <!-- FORM BUSCAR TAREAS -->
-          <div class="cambiar_tarea">
-            <form id="formulario_actualizar_tareas">
-              <label for="input_tareas_actualizar">
-                Introduzca el nombre de una tarea para poder encontrarla y
-                cambiar su estado
-              </label>
-              <input
-                type="text"
-                id="input_tareas_actualizar"
-                placeholder="EJ : Cocinar, Correr"
-              />
-              <button id="buscar_tareas">Buscar tarea</button>
-            </form>
-          </div>
-          <!-- RESULTADO -->
-          <div id="mensaje_tareas">
-            <p id="tareas_buscadas"></p>
-            <button id="eliminar_tarea">Eliminar</button>
-            <button id="pendiente_tarea">Pendiente</button>
-            <button id="completar_tarea">Completada</button>
           </div>
         </div>
       </section>
