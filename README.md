@@ -101,12 +101,3 @@ git pull
 - `background-size: cover;` 👉 Ocupa todo el fondo de la pantalla
 
 ---
-
-## 🆘 Ayuda y dudas
-
-Si tienes problemas con alguna tarea (por ejemplo, los botones del navbar y el footer en la clase 7), deja tu consulta aquí o contacta al profe.
-
----
-
-¡Muchos éxitos en tu aprendizaje! 💪
-Desde ya muchas gracias y mil disculpas las molestias
