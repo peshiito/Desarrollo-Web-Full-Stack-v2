@@ -119,13 +119,34 @@ const boton_ejercico3 = document.querySelector("#descargar");
 const resul3 = document.querySelector("#resultado3");
 
 boton_ejercico3.addEventListener("click", function () {
+  resul3.innerHTML = `<p class="mensaje-info">Se está conectando...</p>`;
+
   const DescargarDatos = new Promise((resolve, reject) => {
     setTimeout(function () {
-      if (qsyo) {
-        resul3.innerHTML += `<p>Se estan decargando los datos......Espere un poco porfavor</p>`;
+      if (2 > 1) {
+        resolve();
       } else {
-        resul3.innerHTML += `<p>La descarga de datos tuvo un error</p>`;
+        reject();
       }
+    }, 4000);
+  });
+
+  DescargarDatos.then(() => {
+    resul3.innerHTML = `<p class="mensaje-exito">Conectado</p>`;
+
+    const DatosDescargados = new Promise((resolve, reject) => {
+      setTimeout(function () {
+        resolve();
+      }, 10000);
     });
+
+    DatosDescargados.then(() => {
+      resul3.innerHTML = "";
+      resul3.innerHTML += `<p class="mensaje-exito">Datos descargados</p>`;
+      resul3.innerHTML += `<p class="mensaje-exito">Datos procesados</p>`;
+      resul3.innerHTML += `<p class="datos-usuario">Los datos de su usuario son: Nombre: ${persona.nombre}, Edad: ${persona.edad}, Frase: "${persona.frase}"</p>`;
+    });
+  }).catch(() => {
+    resul3.innerHTML = `<p class="mensaje-error">Hubo un error en la conexión</p>`;
   });
 });

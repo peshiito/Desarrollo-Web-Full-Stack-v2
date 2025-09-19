@@ -3,26 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejerccios de Asincronia</title>
+    <title>Ejerccios de Asincronía</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Estos son ejercios de asincronia</h1>
+    <h1>Estos son ejercicios de asincronía</h1>
     <p>Mira la consola</p>
 
+    <!-- Ejercicio 2 -->
     <section class="ejercicio2">
       <div class="top2">
-        <h2>Ejercicio numero 2</h2>
-        <p>Ingrese numeros mayores a <span>0.5</span></p>
-        <p>Estos numeros se guardaran en una lista</p>
+        <h2>Ejercicio número 2</h2>
+        <p>Ingrese números mayores a <span>0.5</span></p>
+        <p>Estos números se guardarán en una lista</p>
         <p>
-          En el caso de que le numero sea menor a <span>0.5</span> no ingresara
-          el numero
+          En el caso de que el número sea menor a <span>0.5</span> no ingresará
+          el número
         </p>
       </div>
       <div class="main2">
         <form id="fomulario2">
-          <label for="numero2">Ingrese un numero</label>
+          <label for="numero2">Ingrese un número</label>
           <input type="number" id="numero2" placeholder="Mayor a 0.5" />
           <button type="submit">Enviar datos</button>
         </form>
@@ -30,15 +31,57 @@
       </div>
     </section>
 
+    <!-- Ejercicio 3 -->
     <section class="ejercicio3">
       <div class="top3">
-        <h2>Ejercicio Numero 3</h2>
-        <p>Revele sus datos tocando el boton</p>
+        <h2>Ejercicio Número 3</h2>
+        <p>Revele sus datos tocando el botón</p>
       </div>
       <div class="main3">
-        <button type="button" id="descargar">Descargar</button>
+        <button type="button" id="descargar" class="boton3">Descargar</button>
       </div>
       <div id="resultado3" class="resultado3"></div>
+    </section>
+
+    <!-- Ejercicio 4 -->
+    <section id="ejercicio4">
+      <div class="ejercicio4-container">
+        <div class="explicacion">
+          <h2>Ejercicio 4 - Pokédex</h2>
+          <p>
+            Esta es una Pokédex inspirada en los juegos clásicos de Pokémon.
+            Aquí podrás mostrar información de manera interactiva en la pantalla
+            de la izquierda.
+          </p>
+          <p>
+            Puedes usar este espacio para explicar el funcionamiento, dar
+            ejemplos o escribir cualquier texto relacionado con la práctica.
+          </p>
+        </div>
+        <div class="pokedex">
+          <div class="camera"></div>
+
+          <div class="light green"></div>
+          <div class="light yellow"></div>
+          <div class="light red"></div>
+
+          <div class="screen">
+            <div class="screen-content">
+              Aquí podrás mostrar la información solicitada.
+            </div>
+          </div>
+
+          <div class="round-btn"></div>
+
+          <div class="dpad">
+            <div class="up"></div>
+            <div class="down"></div>
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="center"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <script src="index.js"></script>

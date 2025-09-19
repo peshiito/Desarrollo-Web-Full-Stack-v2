@@ -1,29 +1,232 @@
-* {
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+  color: #eee;
+  text-align: center;
 }
-body {
-  background-color: darkolivegreen;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.ejercicio2 {
-  background-color: beige;
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-  border-radius: 20px;
-}
-.ejercicio2 .top2 {
-  margin: 20px;
-}
-.ejercicio2 .main2 {
-  margin: 20px;
-}
-.ejercicio2 .resultado2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+h1 {
   margin-top: 20px;
+}
+
+section {
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 900px;
+  background: rgba(40, 40, 40, 0.95);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  color: #ddd;
+}
+
+/* ejercicio 2 */
+.ejercicio2 {
+  background: linear-gradient(135deg, #3b2c5a, #2a1f40);
+}
+
+.main2 {
+  margin-top: 20px;
+}
+
+#fomulario2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#fomulario2 input,
+#fomulario2 button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #222;
+  color: #eee;
+}
+
+#fomulario2 button {
+  background: #5e35b1;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#fomulario2 button:hover {
+  background: #4527a0;
+}
+
+.resultado2 {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #bbb;
+}
+
+/* ejercicio 3 */
+.ejercicio3 {
+  background: linear-gradient(135deg, #1b5e20, #0d3d14);
+}
+
+.boton3 {
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-family: monospace;
+  background: linear-gradient(180deg, #0040ff 0%, #00a6d6 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.boton3:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00a6d6;
+}
+
+.resultado3 {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+/* ejercicio 4 */
+#ejercicio4 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  background: linear-gradient(135deg, #3e2723, #1b1b1b);
+}
+
+#ejercicio4 .pokedex {
+  width: 380px;
+  height: 650px;
+  background: #8b0000;
+  border: 4px solid #000;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#ejercicio4 .camera {
+  width: 55px;
+  height: 55px;
+  background: #0288d1;
+  border: 3px solid #111;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+#ejercicio4 .light {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+#ejercicio4 .light.green {
+  background: #388e3c;
+  left: 80px;
+}
+#ejercicio4 .light.yellow {
+  background: #fbc02d;
+  left: 105px;
+}
+#ejercicio4 .light.red {
+  background: #c62828;
+  left: 130px;
+}
+
+#ejercicio4 .screen {
+  width: 300px;
+  height: 280px;
+  background: #111;
+  border: 5px solid #666;
+  margin: 100px auto 0;
+  border-radius: 8px;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+#ejercicio4 .screen-content {
+  color: #0ff;
+  padding: 15px;
+  font-size: 16px;
+  text-align: center;
+  height: 100%;
+  overflow-y: auto;
+  font-family: monospace;
+}
+
+#ejercicio4 .round-btn {
+  width: 30px;
+  height: 30px;
+  background: #b71c1c;
+  border-radius: 50%;
+  border: 2px solid #000;
+  position: absolute;
+  left: 50px;
+  bottom: 150px;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+#ejercicio4 .dpad {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 40px;
+  bottom: 90px;
+}
+
+#ejercicio4 .dpad div {
+  position: absolute;
+  background: #222;
+}
+
+#ejercicio4 .dpad .up {
+  width: 22px;
+  height: 28px;
+  top: 0;
+  left: 24px;
+}
+#ejercicio4 .dpad .down {
+  width: 22px;
+  height: 28px;
+  bottom: 0;
+  left: 24px;
+}
+#ejercicio4 .dpad .left {
+  width: 28px;
+  height: 22px;
+  left: 0;
+  top: 24px;
+}
+#ejercicio4 .dpad .right {
+  width: 28px;
+  height: 22px;
+  right: 0;
+  top: 24px;
+}
+#ejercicio4 .dpad .center {
+  width: 22px;
+  height: 22px;
+  background: #444;
+  top: 24px;
+  left: 24px;
+}
+
+#ejercicio4 .explicacion {
+  flex: 1;
+  max-width: 400px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ddd;
 }
