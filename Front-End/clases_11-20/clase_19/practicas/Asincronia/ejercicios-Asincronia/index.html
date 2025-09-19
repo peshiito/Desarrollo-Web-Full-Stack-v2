@@ -4,10 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejerccios de Asincronia</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Estos son ejercios de asincronia</h1>
     <p>Mira la consola</p>
+
+    <section class="ejercicio2">
+      <div class="top2">
+        <h2>Ejercicio numero 2</h2>
+        <p>Ingrese numeros mayores a <span>0.5</span></p>
+        <p>Estos numeros se guardaran en una lista</p>
+        <p>
+          En el caso de que le numero sea menor a <span>0.5</span> no ingresara
+          el numero
+        </p>
+      </div>
+      <div class="main2">
+        <form id="fomulario2">
+          <label for="numero2">Ingrese un numero</label>
+          <input type="number" id="numero2" placeholder="Mayor a 0.5" />
+          <button type="submit">Enviar datos</button>
+        </form>
+        <div id="resultado2" class="resultado2"></div>
+      </div>
+    </section>
+
+    <section class="ejercicio3">
+      <div class="top3">
+        <h2>Ejercicio Numero 3</h2>
+        <p>Revele sus datos tocando el boton</p>
+      </div>
+      <div class="main3">
+        <button type="button" id="descargar">Descargar</button>
+      </div>
+      <div id="resultado3" class="resultado3"></div>
+    </section>
 
     <script src="index.js"></script>
   </body>

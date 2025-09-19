@@ -38,10 +38,10 @@ PruebaPromesa.then((msj) => {
 }).catch(() => {
   console.log("La promesa me parece que no funciona");
 });
-//
+//Otra prueba de concepto
 let numeros = [5, 6, 100, 0.2];
 
-const CargarDatos = new Promise((resolve, reject) => {
+const LecturaNumeros = new Promise((resolve, reject) => {
   setTimeout(function () {
     for (let i = 0; i < numeros.length; i++) {
       if (numeros[i] < 0.5) {
@@ -58,8 +58,74 @@ const CargarDatos = new Promise((resolve, reject) => {
   }, 5000);
 });
 
-CargarDatos.then((msj) => {
+LecturaNumeros.then((msj) => {
   console.log("Funciono bien");
 }).catch((msj) => {
   console.log("funciono mal");
+});
+
+//Ahora si Ejercicio 2
+
+let numerosEjer2 = [];
+
+document.querySelector("#fomulario2").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const resul2 = document.querySelector("#resultado2");
+
+  //Limpia la pantalla
+  resul2.innerHTML = ``;
+
+  const CargarDatos = new Promise((resolve, reject) => {
+    setTimeout(function () {
+      let numero_ingresado = parseFloat(
+        document.querySelector("#numero2").value
+      );
+
+      if (numero_ingresado > 0.5) {
+        numerosEjer2.push(numero_ingresado);
+        resul2.innerHTML += `<p>${numerosEjer2}</p>`;
+        // console.log(numerosEjer2);
+        resolve("Funciono bien el numero");
+      } else if (numero_ingresado < 0.5) {
+        resul2.innerHTML += `<p>El numero ${numerosEjer2} no es mayor a 0.5</p>`;
+        // console.log("El numero " + numero_ingresado + " no es mayor a 0.5");
+        reject("Ingresaste mal el numero");
+      } else {
+        resul2.innerHTML += `<p>Una de dos o fue mal el numero o la promesa no funciona</p>`;
+        // console.log("una de dos o fue mal el numero o la promesa no funciona");
+        reject("XD");
+      }
+    }, 1000);
+  });
+
+  CargarDatos.then((msj) => {
+    resul2.innerHTML += `<p>La Carga fue Exitosa</p>`;
+    // console.log("La carga fue exitosa");
+  }).catch((msj) => {
+    resul2.innerHTML += `<p>Hubo un error </p>`;
+    // console.log("No se cargo el dato");
+  });
+});
+
+//Ejercicio 3
+const persona = {
+  nombre: "Matias",
+  edad: 20,
+  frase: "Yo soy gay",
+};
+
+const boton_ejercico3 = document.querySelector("#descargar");
+const resul3 = document.querySelector("#resultado3");
+
+boton_ejercico3.addEventListener("click", function () {
+  const DescargarDatos = new Promise((resolve, reject) => {
+    setTimeout(function () {
+      if (qsyo) {
+        resul3.innerHTML += `<p>Se estan decargando los datos......Espere un poco porfavor</p>`;
+      } else {
+        resul3.innerHTML += `<p>La descarga de datos tuvo un error</p>`;
+      }
+    });
+  });
 });

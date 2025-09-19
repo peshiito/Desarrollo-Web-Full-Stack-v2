@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: darkolivegreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ejercicio2 {
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+.ejercicio2 .top2 {
+  margin: 20px;
+}
+.ejercicio2 .main2 {
+  margin: 20px;
+}
+.ejercicio2 .resultado2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
