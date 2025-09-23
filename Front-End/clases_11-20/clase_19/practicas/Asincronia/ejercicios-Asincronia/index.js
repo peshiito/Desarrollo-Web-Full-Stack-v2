@@ -150,3 +150,55 @@ boton_ejercico3.addEventListener("click", function () {
     resul3.innerHTML = `<p class="mensaje-error">Hubo un error en la conexión</p>`;
   });
 });
+//TRATANDO DE ENTENDER ASYNC AWAIT
+//La funcion Msj2 lo que hace es ponner un intervalo de tiempo y luego imprime "Mensaje 2"
+function Msj2() {
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      console.log("Mensaje 2");
+      resolve();
+    }, 10000);
+  });
+}
+//El codigo asincrono o async/await sirve para poder hacer que nuestra funcion en este codigo se vuelva asincrono
+//este codigo imprime el "Mensaje 1", utilizando await le dice a la funcion que se pare y que espere a que se ejecute esa linea
+//Osea que ejecute la funcion Msj2 y luego pase a la siguiente linea
+//Quedaria de la siguiente manera
+//"Mensaje 1"
+//"Mensaje 2" (Msj2 () )
+//"Mensaje 3" (Espera a la ejecucion de Msj2 para imprimir este)
+
+async function CodigoAsincrono() {
+  console.log("Mensaje 1");
+  await Msj2();
+  console.log("Mensaje 3");
+}
+
+CodigoAsincrono();
+
+//Esta forma de codigo no atrapa errores o cosas parecidas, para eso usamos en try catch
+
+//TRY / CATCH
+//Esta funcion imprime un mensaje "Mensaje de espera (Osea estamos dentro del Await)"
+function Msj3() {
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      console.log("Mensaje de espera (Osea estamos dentro del Await)");
+      resolve();
+    }, 30000);
+  });
+}
+//El try intenta imprimir, esperar el funcionamiento de Msj3 y imprime el siguiente mensaje
+//catch imprime el error en caso de haber  y un mensaje de mas
+async function CodigoAsincrono2() {
+  try {
+    console.log("Este es el intento de un Try/Catch");
+    await Msj3();
+    console.log("Esto es despues del Await");
+  } catch (e) {
+    console.log(e);
+    console.log("Error de codigo");
+  }
+}
+
+CodigoAsincrono2();
