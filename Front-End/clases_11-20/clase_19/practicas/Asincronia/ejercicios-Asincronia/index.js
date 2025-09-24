@@ -202,3 +202,41 @@ async function CodigoAsincrono2() {
 }
 
 CodigoAsincrono2();
+//Ultimo Ejercicio pokedex
+
+// https://pokeapi.co/api/v2/ability/{id o nombre}/const poke_api = "https://pokeapi.co/api/v2/pokemon/";
+const poke_api = "https://pokeapi.co/api/v2/pokemon/";
+
+const input_poke_busqueda = document.getElementById("busqueda");
+const pokedexContainer = document.getElementById("container_pokedex");
+
+async function buscar_pokemon() {
+  const id_pokemon = input_poke_busqueda.value.trim();
+  if (!id_pokemon) {
+    pokedexContainer.innerHTML = `<p style="color:red;">Escribí un nombre o número</p>`;
+    return;
+  }
+
+  const pokemonId = parseInt(id_pokemon) || id_pokemon.toLowerCase();
+
+  try {
+    const response = await fetch(poke_api + pokemonId);
+    if (!response.ok) throw new Error("Pokémon no encontrado");
+
+    const data = await response.json();
+
+    pokedexContainer.innerHTML = `
+      <h2>${data.name.toUpperCase()}</h2>
+      <img src="${data.sprites.front_default}" alt="${data.name}">
+      <p>ID: ${data.id}</p>
+      <p>Altura: ${data.height / 10} m</p>
+      <p>Peso: ${data.weight / 10} kg</p>
+      <p>Tipo: ${data.types.map((t) => t.type.name).join(", ")}</p>
+    `;
+  } catch (error) {
+    console.error(error);
+    pokedexContainer.innerHTML = `<p style="color:red;">Pokémon no encontrado</p>`;
+  }
+}
+
+document.getElementById("btn-search").addEventListener("click", buscar_pokemon);
