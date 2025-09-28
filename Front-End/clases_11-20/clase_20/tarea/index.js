@@ -66,3 +66,23 @@ let frutasArray = JSON.parse(jsonEjer3);
 for (const fruta of frutasArray) {
   divEjer3.innerHTML += `<p>Estos son los elementos que estan dentro del Array que anteriormente fue un JSON: ${fruta}</p>`;
 }
+
+//EJERCICIO 4
+
+const divEjer4 = document.querySelector("#midEjer4");
+
+const xd4 = {
+  nombre: "María",
+  edad: 30,
+  direccion: {
+    calle: "Av. Siempre Viva",
+    numero: 742,
+    ciudad: "Springfield",
+  },
+};
+
+const json4 = JSON.stringify(xd4);
+
+const jsonArray4 = JSON.parse(json4);
+
+divEjer4.innerHTML = `El usuario:  ${jsonArray4.nombre} y su edad es ${jsonArray4.edad}, vive en la calle ${jsonArray4.direccion.calle}`;
