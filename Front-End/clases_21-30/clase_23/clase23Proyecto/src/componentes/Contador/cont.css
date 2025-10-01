@@ -1,0 +1,28 @@
+.divContador {
+  text-align: center;
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.divContador h2 {
+  margin-bottom: 10px;
+}
+
+.divContador button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #4cafef;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.divContador button:hover {
+  background: #379ed8;
+}

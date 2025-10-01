@@ -85,4 +85,40 @@ const json4 = JSON.stringify(xd4);
 
 const jsonArray4 = JSON.parse(json4);
 
-divEjer4.innerHTML = `El usuario:  ${jsonArray4.nombre} y su edad es ${jsonArray4.edad}, vive en la calle ${jsonArray4.direccion.calle}`;
+divEjer4.innerHTML = `El usuario:  ${jsonArray4.nombre} y su edad es ${jsonArray4.edad}, vive en la calle ${jsonArray4.direccion.calle}, ${jsonArray4.direccion.numero} de la ciudad de ${jsonArray4.direccion.ciudad}`;
+
+//EJERCICIO 5
+
+const xd5 = {
+  usuarios: [
+    { id: 1, nombre: "Ana" },
+    { id: 2, nombre: "Carlos" },
+    { id: 3, nombre: "Lucía" },
+  ],
+};
+
+const jsonObject = JSON.stringify(xd5);
+const divEjer5 = document.querySelector("#midEjer5");
+
+const objectJson = JSON.parse(jsonObject);
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function apiObject() {
+  divEjer5.innerHTML = `Buscando datos del usuario en la base de datos...`;
+
+  try {
+    for (let y of objectJson) {
+      await delay(1000);
+
+      if (y.id === 2) {
+        divEjer5.innerHTML = `Usuario encontrado: ${y.id}, Nombre: ${y.nombre}`;
+        break;
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
