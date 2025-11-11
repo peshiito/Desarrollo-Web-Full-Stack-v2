@@ -1,12 +1,384 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarea Back-end clase 1</title>
-</head>
-<body>
-    <h1>Tarea Back-end clase 1</h1>
-    <h3>Lista de Tareas (To-do list)</h3>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow Pro - Sistema Avanzado de Gestión de Tareas</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <div class="app-logo">
+            <i class="fas fa-tasks"></i>
+            <h1>TaskFlow Pro</h1>
+          </div>
+          <p class="app-subtitle">Gestión Inteligente de Tareas</p>
+        </div>
+
+        <ul class="sidebar-nav">
+          <li class="nav-item active" data-section="dashboard">
+            <i class="fas fa-chart-pie"></i>
+            <span>Dashboard</span>
+          </li>
+          <li class="nav-item" data-section="tasks">
+            <i class="fas fa-list-check"></i>
+            <span>Mis Tareas</span>
+          </li>
+          <li class="nav-item" data-section="calendar">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Calendario</span>
+          </li>
+          <li class="nav-item" data-section="analytics">
+            <i class="fas fa-chart-line"></i>
+            <span>Analíticas</span>
+          </li>
+          <li class="nav-item" data-section="settings">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+          </li>
+        </ul>
+
+        <div class="sidebar-footer">
+          <div class="user-profile">
+            <div class="user-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="user-info">
+              <span class="user-name">Usuario</span>
+              <span class="user-status">En línea</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+          <div class="section-header">
+            <h2><i class="fas fa-chart-pie"></i> Dashboard</h2>
+            <p>Resumen general de tu productividad</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card primary">
+              <div class="stat-icon">
+                <i class="fas fa-tasks"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="total-tasks">0</h3>
+                <p>Total Tareas</p>
+              </div>
+            </div>
+            <div class="stat-card success">
+              <div class="stat-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="completed-tasks">0</h3>
+                <p>Completadas</p>
+              </div>
+            </div>
+            <div class="stat-card warning">
+              <div class="stat-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="pending-tasks">0</h3>
+                <p>Pendientes</p>
+              </div>
+            </div>
+            <div class="stat-card danger">
+              <div class="stat-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="stat-info">
+                <h3 id="overdue-tasks">0</h3>
+                <p>Vencidas</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-content">
+            <div class="chart-container">
+              <div class="chart-card">
+                <h3>Distribución de Tareas</h3>
+                <div class="chart" id="tasks-chart">
+                  <canvas id="tasksPieChart"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="quick-actions">
+              <h3>Acciones Rápidas</h3>
+              <div class="actions-grid">
+                <button class="action-btn" id="quick-add-task">
+                  <i class="fas fa-plus"></i>
+                  <span>Nueva Tarea</span>
+                </button>
+                <button class="action-btn" id="mark-all-completed">
+                  <i class="fas fa-check-double"></i>
+                  <span>Completar Todas</span>
+                </button>
+                <button class="action-btn" id="export-data">
+                  <i class="fas fa-file-export"></i>
+                  <span>Exportar Datos</span>
+                </button>
+                <button class="action-btn" id="import-data">
+                  <i class="fas fa-file-import"></i>
+                  <span>Importar Datos</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tasks Section -->
+        <section id="tasks" class="content-section">
+          <div class="section-header">
+            <h2><i class="fas fa-list-check"></i> Gestión de Tareas</h2>
+            <p>Administra y organiza tus tareas diarias</p>
+          </div>
+
+          <div class="tasks-controls">
+            <div class="control-group">
+              <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input
+                  type="text"
+                  id="task-search"
+                  placeholder="Buscar tareas..."
+                />
+              </div>
+            </div>
+            <div class="control-group">
+              <select id="filter-status" class="filter-select">
+                <option value="all">Todas las tareas</option>
+                <option value="pending">Pendientes</option>
+                <option value="completed">Completadas</option>
+                <option value="overdue">Vencidas</option>
+              </select>
+              <select id="filter-priority" class="filter-select">
+                <option value="all">Todas las prioridades</option>
+                <option value="high">Alta prioridad</option>
+                <option value="medium">Media prioridad</option>
+                <option value="low">Baja prioridad</option>
+              </select>
+              <select id="filter-category" class="filter-select">
+                <option value="all">Todas las categorías</option>
+                <option value="work">Trabajo</option>
+                <option value="personal">Personal</option>
+                <option value="study">Estudio</option>
+                <option value="health">Salud</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="tasks-container">
+            <div class="tasks-header">
+              <h3>Lista de Tareas</h3>
+              <button class="btn btn-primary" id="add-task-btn">
+                <i class="fas fa-plus"></i> Nueva Tarea
+              </button>
+            </div>
+            <div id="tasks-list" class="tasks-list">
+              <!-- Las tareas se cargarán aquí dinámicamente -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section id="calendar" class="content-section">
+          <div class="section-header">
+            <h2><i class="fas fa-calendar-alt"></i> Calendario</h2>
+            <p>Visualiza tus tareas en el calendario</p>
+          </div>
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <button id="prev-month" class="calendar-nav">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <h3 id="current-month"></h3>
+              <button id="next-month" class="calendar-nav">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div id="calendar-grid" class="calendar-grid">
+              <!-- El calendario se generará dinámicamente -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics" class="content-section">
+          <div class="section-header">
+            <h2><i class="fas fa-chart-line"></i> Analíticas</h2>
+            <p>Estadísticas y tendencias de productividad</p>
+          </div>
+          <div class="analytics-grid">
+            <div class="analytics-card">
+              <h3>Productividad Semanal</h3>
+              <div class="chart">
+                <canvas id="weeklyChart"></canvas>
+              </div>
+            </div>
+            <div class="analytics-card">
+              <h3>Tareas por Categoría</h3>
+              <div class="chart">
+                <canvas id="categoryChart"></canvas>
+              </div>
+            </div>
+            <div class="analytics-card">
+              <h3>Tendencias Mensuales</h3>
+              <div class="chart">
+                <canvas id="monthlyTrendChart"></canvas>
+              </div>
+            </div>
+            <div class="analytics-card">
+              <h3>Distribución de Prioridades</h3>
+              <div class="chart">
+                <canvas id="priorityChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="content-section">
+          <div class="section-header">
+            <h2><i class="fas fa-cog"></i> Configuración</h2>
+            <p>Personaliza tu experiencia</p>
+          </div>
+          <div class="settings-container">
+            <div class="settings-group">
+              <h3>Preferencias de la Aplicación</h3>
+              <div class="setting-item">
+                <label for="theme-select">Tema de la aplicación</label>
+                <select id="theme-select" class="setting-control">
+                  <option value="light">Claro</option>
+                  <option value="dark">Oscuro</option>
+                  <option value="auto">Automático</option>
+                </select>
+              </div>
+              <div class="setting-item">
+                <label for="language-select">Idioma</label>
+                <select id="language-select" class="setting-control">
+                  <option value="es">Español</option>
+                  <option value="en">English</option>
+                  <option value="fr">Français</option>
+                </select>
+              </div>
+              <div class="setting-item">
+                <label>
+                  <input type="checkbox" id="notifications-toggle" />
+                  Notificaciones de recordatorio
+                </label>
+              </div>
+            </div>
+            <div class="settings-group">
+              <h3>Gestión de Datos</h3>
+              <div class="setting-item">
+                <button class="btn btn-secondary" id="export-settings">
+                  <i class="fas fa-download"></i> Exportar Configuración
+                </button>
+              </div>
+              <div class="setting-item">
+                <button class="btn btn-secondary" id="import-settings">
+                  <i class="fas fa-upload"></i> Importar Configuración
+                </button>
+              </div>
+              <div class="setting-item">
+                <button class="btn btn-danger" id="reset-data">
+                  <i class="fas fa-trash"></i> Restablecer Datos
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="task-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modal-title">Nueva Tarea</h3>
+          <button class="close-modal">&times;</button>
+        </div>
+        <form id="task-form" class="modal-form">
+          <input type="hidden" id="task-id" />
+          <div class="form-group">
+            <label for="task-title">Título *</label>
+            <input type="text" id="task-title" required maxlength="100" />
+            <span class="char-counter" id="title-counter">0/100</span>
+          </div>
+          <div class="form-group">
+            <label for="task-description">Descripción</label>
+            <textarea id="task-description" maxlength="500"></textarea>
+            <span class="char-counter" id="description-counter">0/500</span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-priority">Prioridad</label>
+              <select id="task-priority">
+                <option value="low">Baja</option>
+                <option value="medium">Media</option>
+                <option value="high">Alta</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-category">Categoría</label>
+              <select id="task-category">
+                <option value="work">Trabajo</option>
+                <option value="personal">Personal</option>
+                <option value="study">Estudio</option>
+                <option value="health">Salud</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-due-date">Fecha de Vencimiento</label>
+              <input type="date" id="task-due-date" />
+            </div>
+            <div class="form-group">
+              <label for="task-tags">Etiquetas</label>
+              <input
+                type="text"
+                id="task-tags"
+                placeholder="Separar con comas"
+              />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancel-task">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary">Guardar Tarea</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification-center" class="notification-center">
+      <div class="notification-header">
+        <h4>Notificaciones</h4>
+        <button id="clear-all-notifications">Limpiar Todo</button>
+      </div>
+      <div id="notifications-list" class="notifications-list">
+        <!-- Notifications will be added here -->
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>
